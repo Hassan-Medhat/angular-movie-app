@@ -1,0 +1,27 @@
+<div class="p-4 w-75 m-auto ">
+    <input type="search" [(ngModel)]="term" class="form-control rounded-2" placeholder="Search for people...">
+</div>
+<div class="container">
+    <div class="row">
+        <div *ngFor="let people of pouplarPeople | paginate:config |search:term" class="col-md-3 py-3">
+                    <div class="people box">
+                        <a [routerLink]="['/people' , people.id]" target="_blank">
+                            <img [src]="imgPrefix+people.profile_path" [alt]="people.name" class="w-100" (error)="imageError($event)">
+                        </a>
+                        <div class="box-details">
+                            <a [routerLink]="['/people' , people.id]" target="_blank">
+                                <h4>{{people.name}}</h4>
+                            </a>
+                        </div>
+                    </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="w-100 d-flex justify-content-center pt-3">
+    <pagination-controls class="text-dark" (pageChange)="onPageChange($event)"></pagination-controls>
+</div>
+

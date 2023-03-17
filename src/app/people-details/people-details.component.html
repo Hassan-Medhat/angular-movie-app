@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="box">
+        <div class="box-info col-md-4">
+            <img [src]="imgPrefix+peopleDetail?.profile_path" [alt]="peopleDetail?.name" (error)="imageError($event)" class="w-100">
+            <h5>Personal Info</h5>
+            <div class="known-for">
+                <h6>Known For</h6>
+                <div>{{peopleDetail?.known_for_department}}</div>
+            </div>
+            <div class="Gender">
+                <h6>Gender</h6>
+                <div>{{peopleGender}}</div>
+            </div>
+            <div class="Birthday">
+                <h6>Birthday</h6>
+                <div>{{peopleDetail?.birthday}}</div>
+            </div>
+            <div class="Place-of-Birth">
+                <h6>Place of Birth</h6>
+                <div>{{peopleDetail?.place_of_birth}}</div>
+            </div>
+            
+            <a [href]="imdbUrl" target="_blank">IMDB</a>
+            
+        </div>
+        <div class="box-details col-md-8">
+            <h3>{{peopleDetail?.name}}</h3>
+            <div class="detail">
+                <h4 class="h5">Biography</h4>
+                <p>{{peopleDetail?.biography}}</p>
+            </div>
+        </div>
+    </div>
+</div>

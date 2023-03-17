@@ -1,0 +1,32 @@
+<div class="p-4 w-75 m-auto ">
+    <input type="search" [(ngModel)]="term" class="form-control rounded-2" placeholder="Search for a movie...">
+</div>
+
+<div class="container">
+    <div class="row">
+        <div *ngFor="let movie of topRatingMovies | search:term | paginate:config " class="col-md-3 py-3">
+                    <div class="movie box">
+                        <a [routerLink]="['/movie' , movie.id]" target="_blank">
+                            <img [src]="imgPrefix+movie.poster_path" (error)="imageError($event)" [alt]="movie.title" class="w-100">
+                        </a>
+                        <div class="box-details">
+                            <a [routerLink]="['/movie' , movie.id]" target="_blank">
+                                <h4>{{movie.title}}</h4>
+                            </a>
+                            <h5>{{movie.release_date | date : 'y'}}</h5>
+                        </div>
+                        <div class="box-langvote">
+                            <div class="lang">{{movie.original_language}}</div>
+                            <div class="vote"><i class="fa-solid fa-star"></i>{{aroundRating(movie.vote_average)}}</div>
+                        </div>
+                        
+                        
+                    </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="w-100 d-flex justify-content-center pt-3"> 
+    <pagination-controls class="text-dark" (pageChange)="onPageChange($event)"></pagination-controls>
+</div>

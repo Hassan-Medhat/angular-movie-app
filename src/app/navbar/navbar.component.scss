@@ -1,0 +1,21 @@
+nav {
+    background-color: #032541 !important;
+
+    .sty {
+        color: #fff;
+        padding: 10px 25px;
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    .main-style {
+        color: #fff;
+        padding: 10px 25px;
+        letter-spacing: 5px;
+        font-size: 25px;
+        font-weight: bold;
+        background: linear-gradient(45deg, red, blue);
+        background-clip: text;
+	    color: transparent;
+    }
+}

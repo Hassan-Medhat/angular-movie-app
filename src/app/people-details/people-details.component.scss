@@ -1,0 +1,259 @@
+.box {
+    display: flex;
+    .box-info {
+        img {
+            // width: 350px;
+            border-radius: 10px;
+        }
+
+        h5 {
+            margin-top: 40px;
+            font-weight: 600;
+        }
+
+        .known-for {
+            margin-bottom: 20px;
+            h6 {
+                margin-bottom: 0px;
+                font-weight: 600;
+            }
+        }
+
+        .Gender {
+            margin-bottom: 20px;
+            h6 {
+                margin-bottom: 0px;
+                font-weight: 600;
+            }
+            div {
+                text-transform: capitalize;
+            }
+        }
+
+        .Birthday {
+            margin-bottom: 20px;
+            h6 {
+                margin-bottom: 0px;
+                font-weight: 600;
+            }
+        }
+
+        .Place-of-Birth {
+            margin-bottom: 20px;
+            h6 {
+                margin-bottom: 0px;
+                font-weight: 600;
+            }
+            
+        }
+
+
+        a {
+            margin-bottom: 50px;
+            display: block;
+            padding: 15px 25px;
+            width: fit-content;
+            background-color: transparent;
+            border: 2px solid #032541;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            color: #000;
+        }
+    }
+
+    .box-details {
+        margin-left: 50px;
+
+        h3 {
+            padding-top: 25px;
+            font-weight: bold;
+        }
+
+        h4 {
+            margin-top: 40px;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 15px;
+        }
+    }
+}
+
+
+@media (min-width:480px) and (max-width:569px) {
+    .box {
+        .box-info {
+            img {
+                width: 110px !important;
+            }
+    
+            h5 {
+                font-size: 16px;
+            }
+    
+            .known-for {
+                
+                h6 {
+                    font-size: 14px;
+                }
+                div {
+                    font-size: 14px;
+                }
+            }
+    
+            .Gender {
+                h6 {
+                    font-size: 14px;
+                }
+                div {
+                    font-size: 14px;
+                }
+            }
+    
+            .Birthday {
+                h6 {
+                    font-size: 14px;
+                }
+                div {
+                    font-size: 14px;
+                }
+            }
+    
+            .Place-of-Birth {
+                h6 {
+                    font-size: 14px;
+                }
+                div {
+                    font-size: 14px;
+                }
+                
+            }
+    
+    
+            a {
+                padding: 5px 10px;
+                font-size: 14px;
+            }
+        }
+    
+        .box-details {
+            margin-left: 30px;
+    
+            h3 {
+                font-size: 20px;
+            }
+    
+            h4 {
+                font-size: 18px;
+            }
+    
+            p {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+
+@media (min-width:570px) and (max-width:767px) {
+    .box {
+        .box-info {
+            img {
+                width: 120px !important;
+            }
+    
+            h5 {
+                font-size: 16px;
+            }
+    
+            .known-for {
+                
+                h6 {
+                    font-size: 14px;
+                }
+                div {
+                    font-size: 14px;
+                }
+            }
+    
+            .Gender {
+                h6 {
+                    font-size: 14px;
+                }
+                div {
+                    font-size: 14px;
+                }
+            }
+    
+            .Birthday {
+                h6 {
+                    font-size: 14px;
+                }
+                div {
+                    font-size: 14px;
+                }
+            }
+    
+            .Place-of-Birth {
+                h6 {
+                    font-size: 14px;
+                }
+                div {
+                    font-size: 14px;
+                }
+                
+            }
+    
+    
+            a {
+                padding: 5px 10px;
+                font-size: 14px;
+            }
+        }
+    
+        .box-details {
+            margin-left: 30px;
+    
+            h3 {
+                font-size: 20px;
+            }
+    
+            h4 {
+                font-size: 18px;
+            }
+    
+            p {
+                font-size: 14px;
+            }
+        }
+    }
+}
+@media (min-width:768px) and (max-width:1023px) {
+    .box {
+        .box-info {
+            img {
+                width: 100% !important;
+            }
+        }
+
+        .box-details {
+            margin-left: 20px;
+        }
+    }
+}
+@media (min-width:1024px) and (max-width:1199px) {
+    .box {
+        .box-info {
+            img {
+                width: 100% !important;
+            }
+        }
+
+        .box-details {
+            margin-left: 30px;
+        }
+    }
+}

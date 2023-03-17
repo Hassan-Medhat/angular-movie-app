@@ -1,0 +1,74 @@
+.box {
+    img {
+            cursor: pointer;
+            border-radius: 6px;
+            margin-bottom: 25px;
+        }
+
+
+    .box-details {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        a {
+            text-decoration: none;
+            color: #000;
+            h4 {
+                font-size: 20px;
+                font-weight: 700;
+                cursor: pointer;
+        
+                &:hover {
+                    color: #87B4E4;
+                }
+            }
+
+        }
+    }
+}
+
+
+
+@media (min-width:480px) and (max-width:569px) {
+    .box {
+        .box-details {
+    
+            a {
+                h4 {
+                    font-size: 25px;
+                }
+    
+            }
+        }
+    }
+}
+
+@media (min-width:570px) and (max-width:767px) {
+    .box {
+        .box-details {
+    
+            a {
+                h4 {
+                    font-size: 27px;
+                }
+    
+            }
+        }
+    }
+}
+
+
+@media (min-width:768px) and (max-width:1023px) {
+    .box {
+        .box-details {
+    
+            a {
+                h4 {
+                    font-size: 18px;
+                }
+    
+            }
+        }
+    }
+}

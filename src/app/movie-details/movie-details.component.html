@@ -1,0 +1,73 @@
+<div class="box" [ngStyle]="{'background-image': 'url('+ imgPrefix+movieDetails?.backdrop_path +')'}">
+    <div class="container">
+        <div class="row position-relative z-3">
+            <div class="col-md-4">
+                <img [src]="imgPrefix+movieDetails?.poster_path" [alt]="movieDetails?.title" class="w-100">
+            </div>
+            <div class="col-md-8 py-5">
+                <div class="box-title">
+                    <span class="title">{{movieDetails?.title}}</span>
+                    <span class="date">({{movieDetails?.release_date | date: 'y'}})</span>
+                </div>
+                <div class="box-time">
+                    <span class="time">{{movieDetails?.release_date | date: 'M/d/y'}}</span>
+                    <span  *ngFor="let genre of movieGenres">
+                        <span class="genres">{{genre?.name}}</span>
+                    </span> 
+                    <span class="runtime"><i class="fa-regular fa-clock"></i>{{movieDetails?.runtime}} min</span>  
+                </div>
+                <div class="votvid">
+                    <div class="vote-average">
+                        <div class="vote"><i class="fa-solid fa-star"></i>{{aroundRating(movieDetails?.vote_average)}}</div>
+                    </div>
+                    <div class="video"><a [href]="video" target="_blank"><i class="fa-solid fa-play"></i>play trailer</a></div>
+                </div>
+                
+                <div class="tagline">{{movieDetails?.tagline}}</div>
+                <div class="overview">
+                    <h4>overview</h4>
+                    <p>{{movieDetails?.overview}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container pt-5 box-workers" > 
+    <div class="box-cast">
+        <div class="cast">Cast</div>
+        <div *ngFor="let cast of movieCasts">
+            <div class="container-cast">
+                <a>
+                    <img [src]="imgPrefix+cast.profile_path" (error)="imageError($event)" [alt]="cast.name">
+                </a>
+
+                <div class="info">
+                    <a class="name">{{cast.name}}</a>
+                    <div class="character">{{cast.character}}</div>
+                </div>
+
+            </div>
+        
+        </div>
+    </div>
+
+    <div class="box-crew">
+        <div class="crew">Crew</div>
+        <div *ngFor="let crew of movieCrews">
+            <div class="container-crew">
+                <a >
+                    <img [src]="imgPrefix+crew.profile_path" (error)="imageError($event)" [alt]="crew.name">
+                </a>
+
+                <div class="info">
+                    <a class="name">{{crew.name}}</a>
+                    <div class="job">{{crew.job}}</div>
+                </div>
+
+            </div>
+        
+        </div>
+    </div>
+    
+</div>
