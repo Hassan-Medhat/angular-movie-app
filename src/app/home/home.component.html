@@ -8,11 +8,11 @@
         </div>
         <div *ngFor="let movie of trendingMovies" class="col-md-2 py-3">
                     <div class="movie box">
-                        <a [routerLink]="['/movie' , movie.id]" target="_blank">
+                        <a [routerLink]="['/moviedetail' , movie.id]" target="_blank">
                             <img [src]="imgPrefix+movie.poster_path" [alt]="movie.title" class="w-100">
                         </a>
                         <div class="box-details">
-                            <a [routerLink]="['/movie' , movie.id]" target="_blank">
+                            <a [routerLink]="['/moviedetail' , movie.id]" target="_blank">
                                 <h4>{{movie.title}}</h4>
                             </a>
                             <h5>{{movie.release_date | date :'y'}}</h5>
@@ -37,11 +37,11 @@
         </div>
         <div *ngFor="let tv of trendingTvShows" class="col-md-2 py-3">
                     <div class="tv box">
-                        <a [routerLink]="['/tv' , tv.id]" target="_blank">
+                        <a [routerLink]="['/tvdetail' , tv.id]" target="_blank">
                             <img [src]="imgPrefix+tv.poster_path" [alt]="tv.name" class="w-100">
                         </a>
                         <div class="box-details">
-                            <a [routerLink]="['/tv' , tv.id]" target="_blank">
+                            <a [routerLink]="['/tvdetail' , tv.id]" target="_blank">
                                 <h4>{{tv.name}}</h4>
                             </a>
                             <h5>{{tv.first_air_date | date :'y'}}</h5>

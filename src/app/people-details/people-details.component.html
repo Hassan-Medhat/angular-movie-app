@@ -13,21 +13,22 @@
             </div>
             <div class="Birthday">
                 <h6>Birthday</h6>
-                <div>{{peopleDetail?.birthday}}</div>
+                <p>{{peopleBirthday}}</p>
             </div>
             <div class="Place-of-Birth">
                 <h6>Place of Birth</h6>
-                <div>{{peopleDetail?.place_of_birth}}</div>
+                <p>{{peoplePlaceOfBirth}}</p>
+
             </div>
             
             <a [href]="imdbUrl" target="_blank">IMDB</a>
             
         </div>
         <div class="box-details col-md-8">
-            <h3>{{peopleDetail?.name}}</h3>
+            <h3>{{peopleName}}</h3>
             <div class="detail">
                 <h4 class="h5">Biography</h4>
-                <p>{{peopleDetail?.biography}}</p>
+                <p>{{peopleBiography}}</p>
             </div>
         </div>
     </div>

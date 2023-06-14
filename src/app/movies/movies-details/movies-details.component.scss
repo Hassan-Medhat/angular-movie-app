@@ -146,6 +146,10 @@
                     text-decoration: none;
                     color: #000;
                     font-weight: bold;
+                    cursor: pointer;
+                    &:hover {
+                        color: #7F7F7F;
+                    }
                 }
     
                 .character {
@@ -177,6 +181,10 @@
                     text-decoration: none;
                     color: #000;
                     font-weight: bold;
+                    cursor: pointer;
+                    &:hover {
+                        color: #7F7F7F;
+                    }
                 }
     
                 .job {
@@ -326,3 +334,5 @@
         }
     }
 }
+
+

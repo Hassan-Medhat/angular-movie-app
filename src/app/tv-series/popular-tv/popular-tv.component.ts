@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
 import { PaginationInstance } from 'ngx-pagination/lib/ngx-pagination.module';
-import { SharedapiService } from '../sharedapi.service';
-
-
+import { SharedapiService } from 'src/app/sharedapi.service';
 
 @Component({
-  selector: 'app-movie',
-  templateUrl: './movie.component.html',
-  styleUrls: ['./movie.component.scss']
+  selector: 'app-popular-tv',
+  templateUrl: './popular-tv.component.html',
+  styleUrls: ['./popular-tv.component.scss']
 })
-export class MovieComponent {
-  topRatingMovies:any[] = [];
+export class PopularTvComponent {
+
+  PopularTvShows:any[] = [];
   imgPrefix:string=`https://image.tmdb.org/t/p/w500`;
   page:number;
   term:string='';
@@ -24,10 +23,12 @@ export class MovieComponent {
   constructor(private _SharedapiService:SharedapiService) {
 
     for(this.page=1; this.page<101; this.page++) {
-      this._SharedapiService.getTopRating('movie',this.page).subscribe((data)=> {
-        this.topRatingMovies = [...this.topRatingMovies , ...data.results];
+      this._SharedapiService.getPopularTv(this.page).subscribe((data)=> {
+        this.PopularTvShows = [...this.PopularTvShows , ...data.results];
       })
     }
+
+    
 
   }
 

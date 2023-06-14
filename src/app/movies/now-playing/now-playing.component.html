@@ -2,15 +2,16 @@
     <input type="search" [(ngModel)]="term" class="form-control rounded-2" placeholder="Search for a movie...">
 </div>
 
+
 <div class="container">
     <div class="row">
-        <div *ngFor="let movie of topRatingMovies | search:term | paginate:config " class="col-md-3 py-3">
+        <div *ngFor="let movie of nowPlayingMovies | search:term | paginate:config" class="col-md-3 py-3">
                     <div class="movie box">
-                        <a [routerLink]="['/movie' , movie.id]" target="_blank">
+                        <a [routerLink]="['/moviedetail' , movie.id]" target="_blank">
                             <img [src]="imgPrefix+movie.poster_path" (error)="imageError($event)" [alt]="movie.title" class="w-100">
                         </a>
                         <div class="box-details">
-                            <a [routerLink]="['/movie' , movie.id]" target="_blank">
+                            <a [routerLink]="['/moviedetail' , movie.id]" target="_blank">
                                 <h4>{{movie.title}}</h4>
                             </a>
                             <h5>{{movie.release_date | date : 'y'}}</h5>
@@ -30,3 +31,4 @@
 <div class="w-100 d-flex justify-content-center pt-3"> 
     <pagination-controls class="text-dark" (pageChange)="onPageChange($event)"></pagination-controls>
 </div>
+

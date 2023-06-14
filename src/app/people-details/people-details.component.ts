@@ -11,6 +11,11 @@ import { SharedapiService } from '../sharedapi.service';
 export class PeopleDetailsComponent {
 
   peopleId:any;
+  peopleBiography:any;
+  peopleBirthday:any;
+  peoplePlaceOfBirth:any;
+  peopleName:any;
+  isValid:boolean = true;
   peopleDetail:any;
   peopleGender:any;
   imdbUrl:any;
@@ -20,18 +25,18 @@ export class PeopleDetailsComponent {
     this.peopleId = _ActivatedRoute.snapshot.params.id; 
     this._SharedapiService.getPeopleDetails(this.peopleId).subscribe((data)=> {
       this.peopleDetail = data;
+      this.peopleName = data.name;
       this.imdbUrl=`https://www.imdb.com/name/${data.imdb_id}`;
-      if((this.peopleGender = data.gender) == 1) {
-        this.peopleGender = 'female';
-      } else {
-        this.peopleGender = 'male';
-      }
+      (this.peopleGender = data.gender) === 1 ? this.peopleGender = 'female' : this.peopleGender = 'male' ;
+      (this.peopleBiography = data.biography) === "" ? this.peopleBiography = `We don't have a biography ${this.peopleName}` : this.peopleBiography ;
+      (this.peopleBirthday = data.birthday) === null ? this.peopleBirthday = '-' : this.peopleBirthday ;
+      (this.peoplePlaceOfBirth = data.place_of_birth) === null ? this.peoplePlaceOfBirth = '-' : this.peoplePlaceOfBirth ;
     })
   }
 
 
   imageError(event:any) {
-    event.target.src = 'assets/image/error-image.jpg';
+    event.target.src = 'assets/image/error.jpg';
   }
 
 }

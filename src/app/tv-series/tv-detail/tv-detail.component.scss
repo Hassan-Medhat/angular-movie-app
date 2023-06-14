@@ -9,7 +9,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: #89c8ddb3;
+        background-color: #89c8dd9a;
         z-index: 1;
     }
 
@@ -121,6 +121,7 @@
 .box-workers {
     display: flex;
     justify-content: space-around;
+    margin-bottom: 80px;
 
     .box-cast {
         .cast {
@@ -146,6 +147,10 @@
                     text-decoration: none;
                     color: #000;
                     font-weight: bold;
+                    cursor: pointer;
+                    &:hover {
+                        color: #7F7F7F;
+                    }
                 }
     
                 .character {
@@ -177,6 +182,10 @@
                     text-decoration: none;
                     color: #000;
                     font-weight: bold;
+                    cursor: pointer;
+                    &:hover {
+                        color: #7F7F7F;
+                    }
                 }
     
                 .job {
@@ -326,5 +335,3 @@
         }
     }
 }
-
-
