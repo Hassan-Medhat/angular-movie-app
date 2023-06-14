@@ -16,8 +16,36 @@ export class SharedapiService {
     return this._HttpClient.get(`https://api.themoviedb.org/3/trending/${mediaType}/${time}?api_key=b305e6995ba2734b75884e1d6acc9986`);
   }
 
-  getTopRating(mediaType:string , i:number):Observable<any> {
-    return this._HttpClient.get(`https://api.themoviedb.org/3/${mediaType}/top_rated?api_key=b305e6995ba2734b75884e1d6acc9986&language=en-US&page=${i}`)
+  getNowPlaying(i:number):Observable<any> {
+    return this._HttpClient.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=b305e6995ba2734b75884e1d6acc9986&language=en-US&page=${i}`)
+  }
+
+  getPopular(i:number):Observable<any> {
+    return this._HttpClient.get(`https://api.themoviedb.org/3/movie/popular?api_key=b305e6995ba2734b75884e1d6acc9986&language=en-US&page=${i}`)
+  }
+
+  getUpcoming(i:number):Observable<any> {
+    return this._HttpClient.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=b305e6995ba2734b75884e1d6acc9986&language=en-US&page=${i}`)
+  }
+
+  getTopRatingMovies(i:number):Observable<any> {
+    return this._HttpClient.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=b305e6995ba2734b75884e1d6acc9986&language=en-US&page=${i}`)
+  }
+
+  getAiringToday(i:number):Observable<any> {
+    return this._HttpClient.get(`https://api.themoviedb.org/3/tv/airing_today?api_key=b305e6995ba2734b75884e1d6acc9986&language=en-US&page=${i}`)
+  }
+
+  getOnTheAir(i:number):Observable<any> {
+    return this._HttpClient.get(`https://api.themoviedb.org/3/tv/on_the_air?api_key=b305e6995ba2734b75884e1d6acc9986&language=en-US&page=${i}`)
+  }
+
+  getPopularTv(i:number):Observable<any> {
+    return this._HttpClient.get(`https://api.themoviedb.org/3/tv/popular?api_key=b305e6995ba2734b75884e1d6acc9986&language=en-US&page=${i}`)
+  }
+
+  getTopRatingTv(i:number):Observable<any> {
+    return this._HttpClient.get(`https://api.themoviedb.org/3/tv/top_rated?api_key=b305e6995ba2734b75884e1d6acc9986&language=en-US&page=${i}`)
   }
 
   getMovieDetail(movie_id:any):Observable<any> {

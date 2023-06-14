@@ -9,11 +9,27 @@
         <li class="nav-item">
           <a class="nav-link sty" aria-current="page" [routerLink]="['/home']">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link sty" [routerLink]="['/movie']">Movies</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle sty"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Movies
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" [routerLink]="['/nowplaying']">Now Playing</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/popular']">Popular</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/upcoming']">Upcoming</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/toprated']">Top Rated</a></li>
+          </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link sty" [routerLink]="['/tv']">TVShows</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle sty" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            TV Shows
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" [routerLink]="['/populartv']">Popular</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/airingtoday']">Airing Today</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/onair']">On Tv</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/topratedtv']">Top Rated</a></li>
+          </ul>
         </li>
         <li class="nav-item">
           <a class="nav-link sty" [routerLink]="['/people']">People</a>
