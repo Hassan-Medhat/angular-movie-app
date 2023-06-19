@@ -28,7 +28,7 @@ export class PeopleDetailsComponent {
       this.peopleName = data.name;
       this.imdbUrl=`https://www.imdb.com/name/${data.imdb_id}`;
       (this.peopleGender = data.gender) === 1 ? this.peopleGender = 'female' : this.peopleGender = 'male' ;
-      (this.peopleBiography = data.biography) === "" ? this.peopleBiography = `We don't have a biography ${this.peopleName}` : this.peopleBiography ;
+      (this.peopleBiography = data.biography) === "" ? this.peopleBiography = `We don't have a biography for ${this.peopleName}` : this.peopleBiography ;
       (this.peopleBirthday = data.birthday) === null ? this.peopleBirthday = '-' : this.peopleBirthday ;
       (this.peoplePlaceOfBirth = data.place_of_birth) === null ? this.peoplePlaceOfBirth = '-' : this.peoplePlaceOfBirth ;
     })
