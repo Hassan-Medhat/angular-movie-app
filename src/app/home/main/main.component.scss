@@ -1,0 +1,76 @@
+.trending {
+    position: relative;
+
+    h2 {
+        position: absolute;
+        margin: 15px 0;
+        font-weight: 600;
+    }
+    a {
+        text-decoration: none;
+        .item-content{
+            margin-right: 15px;
+            img {
+                height: 225px;
+                border-radius: 7px;
+            }
+            .box-details {
+                margin-top: 15px;
+                margin-bottom: 30px;
+                h4 {
+                    font-size: 15px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    font-weight: 700;
+                    color: #000;
+                    &:hover {
+                        color: #ff0000;
+                    }
+                }
+        
+                
+                h5 {
+                    font-size: 15px;
+                    color: #676767;
+                }
+            }
+    
+        }
+    
+    }
+}
+
+
+
+
+::ng-deep mat-tab-header {
+
+    .mat-mdc-tab:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label {
+      color: #000;
+    }
+  
+    .mat-mdc-tab-list {
+      flex-grow: initial;
+  
+      @media (max-width: 480px) {
+        flex-grow: 1;
+      }
+    }
+  
+    .mat-mdc-tab-label-container {
+      justify-content: flex-end;
+      margin: 15px 0;
+  
+      @media (max-width: 480px) {
+        justify-content: flex-end;
+      }
+    }
+  
+  }
+
+
+
+  
+
+

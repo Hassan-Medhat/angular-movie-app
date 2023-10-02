@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SearchPipe } from '../search.pipe';
+import { SearchPipe } from './search.pipe';
 
 
 

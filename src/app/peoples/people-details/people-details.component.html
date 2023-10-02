@@ -2,21 +2,21 @@
     <div class="box">
         <div class="box-info col-md-4">
             <img [src]="imgPrefix+peopleDetail?.profile_path" [alt]="peopleDetail?.name" (error)="imageError($event)" class="w-100">
-            <h5>Personal Info</h5>
+            <h2>Personal Info</h2>
             <div class="known-for">
-                <h6>Known For</h6>
+                <h4>Known For</h4>
                 <div>{{peopleDetail?.known_for_department}}</div>
             </div>
             <div class="Gender">
-                <h6>Gender</h6>
+                <h4>Gender</h4>
                 <div>{{peopleGender}}</div>
             </div>
             <div class="Birthday">
-                <h6>Birthday</h6>
+                <h4>Birthday</h4>
                 <p>{{peopleBirthday}}</p>
             </div>
             <div class="Place-of-Birth">
-                <h6>Place of Birth</h6>
+                <h4>Place of Birth</h4>
                 <p>{{peoplePlaceOfBirth}}</p>
 
             </div>
@@ -25,9 +25,9 @@
             
         </div>
         <div class="box-details col-md-8">
-            <h3>{{peopleName}}</h3>
+            <h2>{{peopleName}}</h2>
             <div class="detail">
-                <h4 class="h5">Biography</h4>
+                <h3>Biography</h3>
                 <p>{{peopleBiography}}</p>
             </div>
         </div>

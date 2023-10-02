@@ -1,16 +1,18 @@
-import { Component } from '@angular/core';
+import { Component , OnInit , OnDestroy} from '@angular/core';
 import { PaginationInstance } from 'ngx-pagination/lib/ngx-pagination.module';
-import { SharedapiService } from 'src/app/sharedapi.service';
+import { MoviesApiService } from '../movies-api.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-top-rated',
   templateUrl: './top-rated.component.html',
   styleUrls: ['./top-rated.component.scss']
 })
-export class TopRatedComponent {
+export class TopRatedComponent implements OnInit , OnDestroy {
 
+  private unsubscribe: Subject<void> = new Subject<void>();
   topRatingMovies:any[] = [];
-  imgPrefix:string=`https://image.tmdb.org/t/p/w500`;
   page:number;
   term:string='';
 
@@ -20,27 +22,32 @@ export class TopRatedComponent {
     currentPage:1 
   };
 
-  constructor(private _SharedapiService:SharedapiService) {
+  constructor(private moviesApiService:MoviesApiService) { }
 
-    for(this.page=1; this.page<101; this.page++) {
-      this._SharedapiService.getTopRatingMovies(this.page).subscribe((data)=> {
-        this.topRatingMovies = [...this.topRatingMovies , ...data.results];
-      })
-    }
 
-  }
-
-  onPageChange(number: number) {
-    this.config.currentPage = number;
+  ngOnInit(): void {
+    this.getTopRatingMovies();
 }
 
-imageError(event:any) {
-  event.target.src = 'assets/image/error-image.jpg';
+
+getTopRatingMovies() {
+  for(this.page=1; this.page<101; this.page++) {
+    this.moviesApiService.getTopRatingMovies(this.page)
+    .pipe(takeUntil(this.unsubscribe)).subscribe((data)=> {
+      this.topRatingMovies = [...this.topRatingMovies , ...data.results];
+    })
+  }
+  
 }
 
-  aroundRating(rating:any) {
-    rating = Number(rating).toFixed(1);
-    return rating;
-  }
 
+onPageChange(number: number) {
+  this.config.currentPage = number;
+}
+
+
+ngOnDestroy(): void {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
+}
 }

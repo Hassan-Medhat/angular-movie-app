@@ -1,0 +1,7 @@
+<footer class="footer">
+    <div>Developed by <span class="footerHassan">Hassan Medhat</span></div>
+    <a *ngFor="let social of socialData" [href]="social.url"
+       target="_blank" [title]="social.name" class="footerSocial" >
+      <img [src]="social.img" [alt]="social.name" >
+    </a>
+  </footer>

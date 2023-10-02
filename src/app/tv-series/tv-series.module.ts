@@ -10,7 +10,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { TopRatedTvComponent } from './top-rated-tv/top-rated-tv.component';
 import { PopularTvComponent } from './popular-tv/popular-tv.component';
-import { PipeModuleModule } from '../pipe-module/pipe-module.module';
+import { SharedModule } from '../shared/shared.module';
+
 
 
 
@@ -31,7 +32,7 @@ import { PipeModuleModule } from '../pipe-module/pipe-module.module';
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
-    PipeModuleModule
+    SharedModule
 
   ]
 })

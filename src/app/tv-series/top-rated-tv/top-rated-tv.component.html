@@ -5,24 +5,8 @@
 
 <div class="container">
     <div class="row">
-        <div *ngFor="let tv of topRatedTvShows | search:term | paginate:config " class="col-md-3 py-3">
-                    <div class="tv box">
-                        <a [routerLink]="['/tvdetail' , tv.id]" target="_blank">
-                            <img [src]="imgPrefix+tv.poster_path" (error)="imageError($event)" [alt]="tv.name" class="w-100">
-                        </a>
-                        <div class="box-details">
-                            <a [routerLink]="['/tvdetail' , tv.id]" target="_blank">
-                                <h4>{{tv.name}}</h4>
-                            </a>
-                            <h5>{{tv.first_air_date | date : 'y'}}</h5>
-                        </div>
-                        <div class="box-langvote">
-                            <div class="lang">{{tv.original_language}}</div>
-                            <div class="vote"><i class="fa-solid fa-star"></i>{{aroundRating(tv.vote_average)}}</div>
-                        </div>
-                        
-                        
-                    </div>
+        <div *ngFor="let tv of topRatedTvShows |search:term | paginate:config " class="col-md-3 py-3">
+            <app-tv [data]="tv"></app-tv>
         </div>
     </div>
 </div>

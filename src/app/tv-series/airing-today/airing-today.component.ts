@@ -1,6 +1,10 @@
-import { Component } from '@angular/core';
+import { Component , OnInit , OnDestroy} from '@angular/core';
 import { PaginationInstance } from 'ngx-pagination/lib/ngx-pagination.module';
-import { SharedapiService } from 'src/app/sharedapi.service';
+import { Subject} from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { TvApiService } from '../tv-api.service';
+
+
 
 
 @Component({
@@ -8,10 +12,10 @@ import { SharedapiService } from 'src/app/sharedapi.service';
   templateUrl: './airing-today.component.html',
   styleUrls: ['./airing-today.component.scss']
 })
-export class AiringTodayComponent {
+export class AiringTodayComponent implements OnInit , OnDestroy {
 
+  private unsubscribe: Subject<void> = new Subject<void>();
   airingTodayTvShows:any[] = [];
-  imgPrefix:string=`https://image.tmdb.org/t/p/w500`;
   page:number;
   term:string='';
 
@@ -21,29 +25,33 @@ export class AiringTodayComponent {
     currentPage:1 
   };
 
-  constructor(private _SharedapiService:SharedapiService) {
+  constructor(private tvApiService:TvApiService) { }
 
-    for(this.page=1; this.page<101; this.page++) {
-      this._SharedapiService.getAiringToday(this.page).subscribe((data)=> {
-        this.airingTodayTvShows = [...this.airingTodayTvShows , ...data.results];
-      })
-    }
 
-    
-
-  }
-
-  onPageChange(number: number) {
-    this.config.currentPage = number;
+  ngOnInit(): void {
+    this.getAiringToday();
 }
 
-imageError(event:any) {
-  event.target.src = 'assets/image/error-image.jpg';
+
+getAiringToday() {
+  for(this.page=1; this.page<101; this.page++) {
+    this.tvApiService.getAiringToday(this.page)
+    .pipe(takeUntil(this.unsubscribe)).subscribe((data)=> {
+      this.airingTodayTvShows = [...this.airingTodayTvShows , ...data.results];
+    })
+  }
+
 }
 
-  aroundRating(rating:any) {
-    rating = Number(rating).toFixed(1);
-    return rating;
-  }
+
+onPageChange(number: number) {
+  this.config.currentPage = number;
+}
+
+
+ngOnDestroy(): void {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
+}
 
 }

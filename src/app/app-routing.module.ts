@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { PeopleDetailsComponent } from './people-details/people-details.component';
-import { PeopleComponent } from './people/people.component';
 import { NowPlayingComponent } from './movies/now-playing/now-playing.component';
 import { PopularComponent } from './movies/popular/popular.component';
 import { UpcomingComponent } from './movies/upcoming/upcoming.component';
@@ -14,6 +11,9 @@ import { OnTheAirComponent } from './tv-series/on-the-air/on-the-air.component';
 import { TvDetailComponent } from './tv-series/tv-detail/tv-detail.component';
 import { TopRatedTvComponent } from './tv-series/top-rated-tv/top-rated-tv.component';
 import { PopularTvComponent } from './tv-series/popular-tv/popular-tv.component';
+import { MainComponent } from './home/main/main.component';
+import { PeopleComponent } from './peoples/people/people.component';
+import { PeopleDetailsComponent } from './peoples/people-details/people-details.component';
 
 
 
@@ -33,7 +33,7 @@ import { PopularTvComponent } from './tv-series/popular-tv/popular-tv.component'
 
 
 const routes: Routes = [
-{path:'home' , component:HomeComponent},
+{path:'home' , component:MainComponent},
 {path:'' , redirectTo:'/home' , pathMatch:'full'},
 {path:'nowplaying' , component:NowPlayingComponent},
 {path:'popular' , component:PopularComponent},

@@ -1,6 +1,10 @@
-import { Component } from '@angular/core';
+import { Component  , OnInit , OnDestroy} from '@angular/core';
 import { PaginationInstance } from 'ngx-pagination/lib/ngx-pagination.module';
-import { SharedapiService } from 'src/app/sharedapi.service';
+import { MoviesApiService } from '../movies-api.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
+
 
 
 
@@ -9,10 +13,10 @@ import { SharedapiService } from 'src/app/sharedapi.service';
   templateUrl: './now-playing.component.html',
   styleUrls: ['./now-playing.component.scss']
 })
-export class NowPlayingComponent {
+export class NowPlayingComponent implements OnInit , OnDestroy {
 
+  private unsubscribe: Subject<void> = new Subject<void>();
   nowPlayingMovies:any[] = [];
-  imgPrefix:string=`https://image.tmdb.org/t/p/w500`;
   page:number;
   term:string='';
 
@@ -21,28 +25,34 @@ export class NowPlayingComponent {
     currentPage:1 
   };
 
-  constructor(private _SharedapiService:SharedapiService) {
+  constructor(private moviesApiService:MoviesApiService) { }
 
+
+
+  ngOnInit(): void {
+      this.getNowPlaying();
+  }
+
+
+  getNowPlaying() {
     for(this.page=1; this.page<101; this.page++) {
-      this._SharedapiService.getNowPlaying(this.page).subscribe((data)=> {
+      this.moviesApiService.getNowPlaying(this.page)
+      .pipe(takeUntil(this.unsubscribe)).subscribe((data)=> {
         this.nowPlayingMovies = [...this.nowPlayingMovies , ...data.results];
       })
     }
-
+    
   }
+
 
   onPageChange(number: number) {
     this.config.currentPage = number;
   }
 
 
-  imageError(event:any) {
-    event.target.src = 'assets/image/error-image.jpg';
-  }
-  
-  aroundRating(rating:any) {
-    rating = Number(rating).toFixed(1);
-    return rating;
+  ngOnDestroy(): void {
+      this.unsubscribe.next();
+      this.unsubscribe.complete();
   }
 
 }

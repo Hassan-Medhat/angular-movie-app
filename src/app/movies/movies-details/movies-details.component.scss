@@ -33,6 +33,7 @@
     }
 
     .box-time {
+        margin-top: 25px;
         .time {
             padding-right: 15px;
         }
@@ -324,15 +325,5 @@
     }
 }
 
-
-@media (min-width:768px) and (max-width:1023px) {
-    .box {
-        img {
-            position: relative;
-            top: 45px;
-            height: 450px;
-        }
-    }
-}
 
 

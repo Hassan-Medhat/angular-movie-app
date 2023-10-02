@@ -4,27 +4,12 @@
 
 
 <div class="container">
-    <div class="row">
-        <div *ngFor="let movie of popularMovies | search:term | paginate:config" class="col-md-3 py-3">
-                    <div class="movie box">
-                        <a [routerLink]="['/moviedetail' , movie.id]" target="_blank">
-                            <img [src]="imgPrefix+movie.poster_path" (error)="imageError($event)" [alt]="movie.title" class="w-100">
-                        </a>
-                        <div class="box-details">
-                            <a [routerLink]="['/moviedetail' , movie.id]" target="_blank">
-                                <h4>{{movie.title}}</h4>
-                            </a>
-                            <h5>{{movie.release_date | date : 'y'}}</h5>
-                        </div>
-                        <div class="box-langvote">
-                            <div class="lang">{{movie.original_language}}</div>
-                            <div class="vote"><i class="fa-solid fa-star"></i>{{aroundRating(movie.vote_average)}}</div>
-                        </div>
-                        
-                        
-                    </div>
+        <div class="row">
+                <div class="col-md-3 py-3"  *ngFor="let movie of popularMovies | search:term | paginate:config">
+                        <app-movie [data]="movie"></app-movie>
+                </div>        
         </div>
-    </div>
+
 </div>
 
 

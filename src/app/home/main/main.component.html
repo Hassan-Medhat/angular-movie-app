@@ -1,0 +1,98 @@
+<section class="container trending">
+
+    <h2>TrendingMovies</h2>
+
+    <mat-tab-group (selectedTabChange)="tabMovieChange($event)" [selectedIndex]="selectedMovieTab" mat-align-tabs="end">
+    
+        <mat-tab *ngFor="let tab of TabList" [label]="tab">
+            <owl-carousel-o [options]="customOptions" class="w-100">
+    
+                <ng-container *ngFor="let movie of trendingMovies">
+                    <ng-template carouselSlide [width]="170">
+                      <a [routerLink]="['/moviedetail' , movie.id]" target="_blank" >
+                          <div class="item-content">
+                              <img [src]="imgPrefix+movie.poster_path" [alt]="movie.title" (error)="imageError($event)" class="w-100">
+                                  <div class="box-details">
+                                      <h4 [title]="movie.title">{{movie.title}}</h4>
+                                      <h5>{{movie.release_date | date:'mediumDate'}}</h5>
+                                  </div>
+                          </div>
+                      </a>
+                    </ng-template>
+                  </ng-container>
+              
+              </owl-carousel-o>
+        </mat-tab>
+    
+      </mat-tab-group>
+</section>
+
+
+
+<section class="container trending">
+
+    <h2>TrendingTvShows</h2>
+
+    <mat-tab-group (selectedTabChange)="tabTvChange($event)" [selectedIndex]="selectedTvTab" mat-align-tabs="end">
+    
+        <mat-tab *ngFor="let tab of TabList" [label]="tab">
+            <owl-carousel-o [options]="customOptions" class="w-100">
+    
+                <ng-container *ngFor="let tv of trendingTvShows">
+                    <ng-template carouselSlide [width]="170">
+                      <a [routerLink]="['/tvdetail' , tv.id]" target="_blank" >
+                          <div class="item-content">
+                              <img [src]="imgPrefix+tv.poster_path" [alt]="tv.name" (error)="imageError($event)" class="w-100">
+                                  <div class="box-details">
+                                      <h4 [title]="tv.name">{{tv.name}}</h4>
+                                      <h5>{{tv.first_air_date | date:'mediumDate'}}</h5>
+                                  </div>
+                          </div>
+                      </a>
+                    </ng-template>
+                  </ng-container>
+              
+              </owl-carousel-o>
+        </mat-tab>
+    
+      </mat-tab-group>
+</section>
+
+
+
+
+<section class="container trending">
+
+    <h2>TrendingPerson</h2>
+
+    <mat-tab-group (selectedTabChange)="tabPeopleChange($event)" [selectedIndex]="selectedPersonTab" mat-align-tabs="end">
+    
+        <mat-tab *ngFor="let tab of TabList" [label]="tab">
+            <owl-carousel-o [options]="customOptions" class="w-100">
+    
+                <ng-container *ngFor="let person of trendingPeople">
+                    <ng-template carouselSlide [width]="170">
+                      <a [routerLink]="['/people' , person.id]" target="_blank" >
+                          <div class="item-content">
+                              <img [src]="imgPrefix+person.profile_path" [alt]="person.name" (error)="imageError($event)" class="w-100">
+                                  <div class="box-details">
+                                      <h4 [title]="person.name">{{person.name}}</h4>
+                                      <h5>{{person.first_air_date | date:'mediumDate'}}</h5>
+                                  </div>
+                          </div>
+                      </a>
+                    </ng-template>
+                  </ng-container>
+              
+              </owl-carousel-o>
+        </mat-tab>
+    
+      </mat-tab-group>
+</section>
+
+
+
+
+
+
+

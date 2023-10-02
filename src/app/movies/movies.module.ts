@@ -9,8 +9,9 @@ import { MoviesDetailsComponent } from './movies-details/movies-details.componen
 import { AppRoutingModule } from '../app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { TopRatedComponent } from './top-rated/top-rated.component'; 
-import { PipeModuleModule } from '../pipe-module/pipe-module.module';
+import { TopRatedComponent } from './top-rated/top-rated.component';
+import { SharedModule } from '../shared/shared.module';
+
 
 
 
@@ -37,7 +38,7 @@ import { PipeModuleModule } from '../pipe-module/pipe-module.module';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    PipeModuleModule
+    SharedModule
   ]
 })
 export class MoviesModule { }

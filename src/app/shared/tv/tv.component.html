@@ -1,0 +1,17 @@
+<div class="box">
+    <a [routerLink]="['/tvdetail' , data.id]" target="_blank">
+        <img [src]="imgPrefix+data.poster_path" (error)="imageError($event)" [alt]="data.name" class="w-100">
+    </a>
+    <div class="box-details">
+        <a [routerLink]="['/tvdetail' , data.id]" target="_blank">
+            <h4>{{data.name}}</h4>
+        </a>
+        <h5>{{data.first_air_date | date : 'y'}}</h5>
+    </div>
+    <div class="box-langvote">
+        <div class="lang">{{data.original_language}}</div>
+        <div class="vote"><i class="fa-solid fa-star"></i>{{aroundRating(data.vote_average)}}</div>
+    </div>
+    
+    
+</div>

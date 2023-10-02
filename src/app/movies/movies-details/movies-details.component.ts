@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component , OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SharedapiService } from 'src/app/sharedapi.service';
+import { MoviesApiService } from '../movies-api.service';
+import { take } from 'rxjs/operators';
+
 
 
 
@@ -10,7 +12,7 @@ import { SharedapiService } from 'src/app/sharedapi.service';
   templateUrl: './movies-details.component.html',
   styleUrls: ['./movies-details.component.scss']
 })
-export class MoviesDetailsComponent {
+export class MoviesDetailsComponent implements OnInit {
 
   movieId:any;
   movieDetails:any;
@@ -24,39 +26,52 @@ export class MoviesDetailsComponent {
   imgPrefix:string=`https://image.tmdb.org/t/p/w500`;
   video:any;
 
-  constructor(private _ActivatedRoute:ActivatedRoute , private _SharedapiService:SharedapiService) {
-    this.movieId= _ActivatedRoute.snapshot.params.id;
-    this._SharedapiService.getMovieDetail(this.movieId).subscribe((data)=> {
-      this.movieDetails=data;
-      this.movieGenres=data.genres;
-      (this.movieOverview = data.overview) === "" ? this.movieOverview = `We don't have an overview translated in English. Help us expand our database by adding one.`: this.movieOverview;
+  constructor(private activatedRoute:ActivatedRoute , private moviesApiService:MoviesApiService) { }
 
-    })
 
-    this._SharedapiService.getMovieVideo(this.movieId).subscribe((data)=> {
-      for(let i=0; i<data.results.length;i++) {
-        if(data.results[i].type == 'Trailer') {
-          this.video=`https://www.youtube.com/watch?v=${data.results[i].key}`;
-        }
+  ngOnInit(): void {
+    this.getMovieDetail();
+    this.getMovieVideo();
+    this.getMovieCredit();
+}
+
+getMovieDetail() {
+  this.movieId = this.activatedRoute.snapshot.params.id;
+  this.moviesApiService.getMovieDetail(this.movieId).pipe(take(1)).subscribe((data)=> {
+    this.movieDetails=data;
+    this.movieGenres=data.genres;
+    (this.movieOverview = data.overview) === "" ? this.movieOverview = `We don't have an overview translated in English. Help us expand our database by adding one.`: this.movieOverview;
+
+  })
+
+}
+
+getMovieVideo() {
+  this.moviesApiService.getMovieVideo(this.movieId).pipe(take(1)).subscribe((data)=> {
+    for(let i=0; i<data.results.length;i++) {
+      if(data.results[i].type === 'Trailer') {
+        this.video=`https://www.youtube.com/watch?v=${data.results[i].key}`;
       }
-    })
+    }
+  })
 
-    this._SharedapiService.getMovieCredit(this.movieId).subscribe((data)=> {
-      this.movieCastsLength = data.cast.length;
-      for(let i=0; i<data.cast.length; i++) {
-        this.movieCasts.push(data.cast[i]);
-      }
-      this.movieCrewsLength=data.crew.length;
-      for(let i=0; i<data.crew.length; i++) {
-        this.movieCrews.push(data.crew[i]);
-      }
-      
-    })
+}
 
+getMovieCredit() {
+  this.moviesApiService.getMovieCredit(this.movieId).pipe(take(1)).subscribe((data)=> {
+    this.movieCastsLength = data.cast.length;
+    for(let i=0; i<data.cast.length; i++) {
+      this.movieCasts.push(data.cast[i]);
+    }
+    this.movieCrewsLength=data.crew.length;
+    for(let i=0; i<data.crew.length; i++) {
+      this.movieCrews.push(data.crew[i]);
+    }
     
+  })
 
-    
-  }
+}
+
 
   imageError(event:any) {
       event.target.src = 'assets/image/error-image.jpg';

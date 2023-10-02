@@ -2,18 +2,17 @@
     display: flex;
     .box-info {
         img {
-            // width: 350px;
             border-radius: 10px;
         }
 
-        h5 {
+        h2 {
             margin-top: 40px;
             font-weight: 600;
         }
 
         .known-for {
             margin-bottom: 20px;
-            h6 {
+            h4 {
                 margin-bottom: 0px;
                 font-weight: 600;
             }
@@ -21,7 +20,7 @@
 
         .Gender {
             margin-bottom: 20px;
-            h6 {
+            h4 {
                 margin-bottom: 0px;
                 font-weight: 600;
             }
@@ -32,7 +31,7 @@
 
         .Birthday {
             margin-bottom: 20px;
-            h6 {
+            h4 {
                 margin-bottom: 0px;
                 font-weight: 600;
             }
@@ -40,7 +39,7 @@
 
         .Place-of-Birth {
             margin-bottom: 20px;
-            h6 {
+            h4 {
                 margin-bottom: 0px;
                 font-weight: 600;
             }
@@ -66,12 +65,12 @@
     .box-details {
         margin-left: 50px;
 
-        h3 {
+        h2 {
             padding-top: 25px;
             font-weight: bold;
         }
 
-        h4 {
+        h3 {
             margin-top: 40px;
             font-weight: 600;
         }
@@ -90,13 +89,13 @@
                 width: 110px !important;
             }
     
-            h5 {
+            h2 {
                 font-size: 16px;
             }
     
             .known-for {
                 
-                h6 {
+                h4 {
                     font-size: 14px;
                 }
                 div {
@@ -105,7 +104,7 @@
             }
     
             .Gender {
-                h6 {
+                h4 {
                     font-size: 14px;
                 }
                 div {
@@ -114,7 +113,7 @@
             }
     
             .Birthday {
-                h6 {
+                h4 {
                     font-size: 14px;
                 }
                 div {
@@ -123,7 +122,7 @@
             }
     
             .Place-of-Birth {
-                h6 {
+                h4 {
                     font-size: 14px;
                 }
                 div {
@@ -142,11 +141,11 @@
         .box-details {
             margin-left: 30px;
     
-            h3 {
+            h2 {
                 font-size: 20px;
             }
     
-            h4 {
+            h3 {
                 font-size: 18px;
             }
     
@@ -165,13 +164,13 @@
                 width: 120px !important;
             }
     
-            h5 {
+            h2 {
                 font-size: 16px;
             }
     
             .known-for {
                 
-                h6 {
+                h4 {
                     font-size: 14px;
                 }
                 div {
@@ -180,7 +179,7 @@
             }
     
             .Gender {
-                h6 {
+                h4 {
                     font-size: 14px;
                 }
                 div {
@@ -189,7 +188,7 @@
             }
     
             .Birthday {
-                h6 {
+                h4 {
                     font-size: 14px;
                 }
                 div {
@@ -198,7 +197,7 @@
             }
     
             .Place-of-Birth {
-                h6 {
+                h4 {
                     font-size: 14px;
                 }
                 div {
@@ -217,11 +216,11 @@
         .box-details {
             margin-left: 30px;
     
-            h3 {
+            h2 {
                 font-size: 20px;
             }
     
-            h4 {
+            h3 {
                 font-size: 18px;
             }
     
@@ -241,19 +240,6 @@
 
         .box-details {
             margin-left: 20px;
-        }
-    }
-}
-@media (min-width:1024px) and (max-width:1199px) {
-    .box {
-        .box-info {
-            img {
-                width: 100% !important;
-            }
-        }
-
-        .box-details {
-            margin-left: 30px;
         }
     }
 }

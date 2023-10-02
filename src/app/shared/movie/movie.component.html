@@ -1,0 +1,17 @@
+<div class="box">
+    <a [routerLink]="['/moviedetail' , data.id]" target="_blank">
+        <img [src]="imgPrefix+data.poster_path" [alt]="data.title" (error)="imageError($event)" class="w-100">
+    </a>
+    <div class="box-details">
+        <a [routerLink]="['/moviedetail' , data.id]" target="_blank">
+            <h4>{{data.title}}</h4>
+        </a>
+        <h5>{{data.release_date | date : 'y'}}</h5>
+    </div>
+    <div class="box-langvote">
+        <div class="lang">{{data.original_language}}</div>
+        <div class="vote"><i class="fa-solid fa-star"></i>{{aroundRating(data.vote_average)}}</div>
+    </div>
+</div> 
+
+ 
