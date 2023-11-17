@@ -17,21 +17,6 @@ import { PeopleDetailsComponent } from './peoples/people-details/people-details.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const routes: Routes = [
 {path:'home' , component:MainComponent},
 {path:'' , redirectTo:'/home' , pathMatch:'full'},

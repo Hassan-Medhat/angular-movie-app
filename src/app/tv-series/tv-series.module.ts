@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { AiringTodayComponent } from './airing-today/airing-today.component';
 import { OnTheAirComponent } from './on-the-air/on-the-air.component';
 import { TvDetailComponent } from './tv-detail/tv-detail.component';
@@ -26,7 +25,6 @@ import { SharedModule } from '../shared/shared.module';
     PopularTvComponent,
   ],
   imports: [
-    CommonModule,
     NgxPaginationModule,
     FormsModule,
     AppRoutingModule,

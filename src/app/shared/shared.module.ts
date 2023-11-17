@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { ImgMissingDirective } from './directives/img-missing.directive';
 
 
 
@@ -20,20 +22,23 @@ import { FooterComponent } from './footer/footer.component';
     HeaderComponent,
     MovieComponent,
     TvComponent,
-    FooterComponent
+    FooterComponent,
+    ImgMissingDirective
   ],
   imports: [
     CommonModule,
     PipeModuleModule,
     HttpClientModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    BrowserModule
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
     MovieComponent,
     TvComponent,
+    ImgMissingDirective,
     PipeModuleModule,
     HttpClientModule,
     RouterModule,

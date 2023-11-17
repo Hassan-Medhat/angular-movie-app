@@ -73,10 +73,6 @@ getMovieCredit() {
 }
 
 
-  imageError(event:any) {
-      event.target.src = 'assets/image/error-image.jpg';
-  }
-
 
   aroundRating(rating:any) {
     rating = Number(rating).toFixed(1);

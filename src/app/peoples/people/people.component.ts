@@ -44,11 +44,6 @@ export class PeopleComponent  implements OnInit , OnDestroy{
     this.config.currentPage = number;
 }
 
-imageError(event:any) {
-  event.target.src = 'assets/image/error-image.jpg';
-}
-
-
   ngOnDestroy(): void {
     this.unsubscribe.next();
     this.unsubscribe.complete();

@@ -72,7 +72,7 @@ export class MainComponent implements OnInit {
   tabMovieChange(event: any) {
     this.selectedMovieTab = event.index;
     if (event.index === 0) {
-      this.getMovies('day',0,10);
+      this.getMovies('day',0,9);
     } else if (event.index === 1) {
       this.getMovies('week',10,20);
     }
@@ -82,7 +82,7 @@ export class MainComponent implements OnInit {
   tabTvChange(event: any) {
     this.selectedTvTab = event.index;
     if (event.index === 0) {
-      this.getTVs('day',0,10);
+      this.getTVs('day',0,9);
     } else if (event.index === 1) {
       this.getTVs('week',10,20);
     }
@@ -92,7 +92,7 @@ export class MainComponent implements OnInit {
   tabPeopleChange(event: any) {
     this.selectedPersonTab = event.index;
     if (event.index === 0) {
-      this.getPeoples('day',0,10);
+      this.getPeoples('day',0,9);
     } else if (event.index === 1) {
       this.getPeoples('week',10,20);
     }
@@ -120,8 +120,5 @@ export class MainComponent implements OnInit {
     });
   }
 
-  imageError(event:any) {
-    event.target.src = 'assets/image/error-image.jpg';
-  }
 
 }

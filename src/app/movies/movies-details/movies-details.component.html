@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row position-relative z-3">
             <div class="col-md-4 col-sm-12">
-                <img [src]="imgPrefix+movieDetails?.poster_path" [alt]="movieDetails?.title" class="w-100">
+                <img [src]="imgPrefix+movieDetails?.poster_path"  [alt]="movieDetails?.title" class="w-100">
             </div>
             <div class="col-md-8  col-sm-12 py-5">
                 <div class="box-title">
@@ -39,7 +39,7 @@
         <div *ngFor="let cast of movieCasts">
             <div class="container-cast">
                 <a [routerLink]="['/people' , cast.id]" target="_blank">
-                    <img [src]="imgPrefix+cast.profile_path" (error)="imageError($event)" [alt]="cast.name">
+                    <img [src]="imgPrefix+cast.profile_path" appImgMissing [alt]="cast.name">
                 </a>
 
                 <div class="info">
@@ -57,7 +57,7 @@
         <div *ngFor="let crew of movieCrews">
             <div class="container-crew">
                 <a [routerLink]="['/people' , crew.id]" target="_blank">
-                    <img  [src]="imgPrefix+crew.profile_path" (error)="imageError($event)" [alt]="crew.name">
+                    <img  [src]="imgPrefix+crew.profile_path" appImgMissing [alt]="crew.name">
                 </a>
 
                 <div class="info">

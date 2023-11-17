@@ -6,7 +6,7 @@
         <div *ngFor="let people of pouplarPeople |search:term | paginate:config " class="col-md-3 py-3">
                     <div class="people box">
                         <a [routerLink]="['/people' , people.id]" target="_blank">
-                            <img [src]="imgPrefix+people.profile_path" [alt]="people.name" class="w-100" (error)="imageError($event)">
+                            <img [src]="imgPrefix+people.profile_path" [alt]="people.name" class="w-100" appImgMissing>
                         </a>
                         <div class="box-details">
                             <a [routerLink]="['/people' , people.id]" target="_blank">

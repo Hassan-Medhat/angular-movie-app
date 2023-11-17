@@ -1,19 +1,26 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class PeopleApiService {
 
-  constructor(private httpClient:HttpClient) { }
+  apiKey: string;
+
+  constructor(private httpClient:HttpClient) { 
+
+    this.apiKey = environment.theMovieDBApi;
+  }
 
   getPeople(i:number):Observable<any> {
-    return this.httpClient.get(`https://api.themoviedb.org/3/person/popular?api_key=b305e6995ba2734b75884e1d6acc9986&language=en-US&page=${i}`)
+    return this.httpClient.get(`https://api.themoviedb.org/3/person/popular?api_key=${this.apiKey}&language=en-US&page=${i}`)
   }
 
   getPeopleDetails(person_id:any):Observable<any> {
-    return this.httpClient.get(`https://api.themoviedb.org/3/person/${person_id}?api_key=b305e6995ba2734b75884e1d6acc9986&language=en-US`)
+    return this.httpClient.get(`https://api.themoviedb.org/3/person/${person_id}?api_key=${this.apiKey}&language=en-US`)
   }
 }

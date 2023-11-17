@@ -1,3 +1,10 @@
+<section class="home-main-content">
+    <h2>Welcome.</h2>
+    <p>Millions of movies, TV shows and people to discover. Explore now.</p>
+</section>
+
+
+
 <section class="container trending">
 
     <h2>TrendingMovies</h2>
@@ -11,7 +18,7 @@
                     <ng-template carouselSlide [width]="170">
                       <a [routerLink]="['/moviedetail' , movie.id]" target="_blank" >
                           <div class="item-content">
-                              <img [src]="imgPrefix+movie.poster_path" [alt]="movie.title" (error)="imageError($event)" class="w-100">
+                              <img [src]="imgPrefix+movie.poster_path" [alt]="movie.title" [title]="movie.title" appImgMissing class="w-100">
                                   <div class="box-details">
                                       <h4 [title]="movie.title">{{movie.title}}</h4>
                                       <h5>{{movie.release_date | date:'mediumDate'}}</h5>
@@ -42,7 +49,7 @@
                     <ng-template carouselSlide [width]="170">
                       <a [routerLink]="['/tvdetail' , tv.id]" target="_blank" >
                           <div class="item-content">
-                              <img [src]="imgPrefix+tv.poster_path" [alt]="tv.name" (error)="imageError($event)" class="w-100">
+                              <img [src]="imgPrefix+tv.poster_path" [alt]="tv.name" [title]="tv.name" appImgMissing class="w-100">
                                   <div class="box-details">
                                       <h4 [title]="tv.name">{{tv.name}}</h4>
                                       <h5>{{tv.first_air_date | date:'mediumDate'}}</h5>
@@ -74,7 +81,7 @@
                     <ng-template carouselSlide [width]="170">
                       <a [routerLink]="['/people' , person.id]" target="_blank" >
                           <div class="item-content">
-                              <img [src]="imgPrefix+person.profile_path" [alt]="person.name" (error)="imageError($event)" class="w-100">
+                              <img [src]="imgPrefix+person.profile_path" [alt]="person.name" [title]="person.name" appImgMissing class="w-100">
                                   <div class="box-details">
                                       <h4 [title]="person.name">{{person.name}}</h4>
                                       <h5>{{person.first_air_date | date:'mediumDate'}}</h5>

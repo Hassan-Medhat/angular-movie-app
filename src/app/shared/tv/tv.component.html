@@ -1,6 +1,6 @@
 <div class="box">
     <a [routerLink]="['/tvdetail' , data.id]" target="_blank">
-        <img [src]="imgPrefix+data.poster_path" (error)="imageError($event)" [alt]="data.name" class="w-100">
+        <img [src]="imgPrefix+data.poster_path" appImgMissing [alt]="data.name" class="w-100">
     </a>
     <div class="box-details">
         <a [routerLink]="['/tvdetail' , data.id]" target="_blank">
