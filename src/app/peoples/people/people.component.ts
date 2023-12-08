@@ -3,6 +3,7 @@ import { PaginationInstance } from 'ngx-pagination/lib/ngx-pagination.module';
 import { PeopleApiService } from '../people-api.service';
 import { Subject} from 'rxjs';
 import {takeUntil } from 'rxjs/operators';
+import { People } from 'src/app/shared/interfaces/people';
 
 
 @Component({
@@ -13,7 +14,7 @@ import {takeUntil } from 'rxjs/operators';
 export class PeopleComponent  implements OnInit , OnDestroy{
 
   private unsubscribe: Subject<void> = new Subject<void>();
-  pouplarPeople:any[] = [];
+  pouplarPeople: Array<People> = [];
   imgPrefix:string=`https://image.tmdb.org/t/p/w500`;
   page:number;
   term:string='';

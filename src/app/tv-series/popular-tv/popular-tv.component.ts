@@ -3,6 +3,7 @@ import { PaginationInstance } from 'ngx-pagination/lib/ngx-pagination.module';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TvApiService } from '../tv-api.service';
+import { Tv } from 'src/app/shared/interfaces/tv';
 
 @Component({
   selector: 'app-popular-tv',
@@ -12,7 +13,7 @@ import { TvApiService } from '../tv-api.service';
 export class PopularTvComponent implements OnInit , OnDestroy {
 
   private unsubscribe: Subject<void> = new Subject<void>();
-  PopularTvShows:any[] = [];
+  PopularTvShows: Array<Tv> = [];
   page:number;
   term:string='';
 

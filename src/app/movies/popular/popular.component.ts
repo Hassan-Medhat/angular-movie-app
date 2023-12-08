@@ -3,6 +3,7 @@ import { PaginationInstance } from 'ngx-pagination/lib/ngx-pagination.module';
 import { MoviesApiService } from '../movies-api.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Moive } from 'src/app/shared/interfaces/moive';
 
 @Component({
   selector: 'app-popular',
@@ -12,7 +13,7 @@ import { takeUntil } from 'rxjs/operators';
 export class PopularComponent implements OnInit , OnDestroy {
 
   private unsubscribe: Subject<void> = new Subject<void>();
-  popularMovies:any[] = [];
+  popularMovies: Array<Moive> = [];
   page:number;
   term:string='';
 

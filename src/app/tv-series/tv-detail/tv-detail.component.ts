@@ -2,6 +2,8 @@ import { Component , OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { take} from 'rxjs/operators';
 import { TvApiService } from '../tv-api.service';
+import { Tv } from 'src/app/shared/interfaces/tv';
+import { Cast, Crew } from 'src/app/shared/interfaces/people';
 
 
 
@@ -12,16 +14,16 @@ import { TvApiService } from '../tv-api.service';
 })
 export class TvDetailComponent implements OnInit {
 
-  tvId:any;
-  tvDetails:any;
+  tvId: number;
+  tvDetails: Partial<Tv>;
   tvGenres:any;
-  tvOverview:any;
-  tvCasts:any[] = [];
-  tvCastsLength:any;
-  tvCrews:any[] = [];
-  tvCrewsLength:any;
+  tvOverview: string;
+  tvCasts: Array<Cast> = [];
+  tvCastsLength: number;
+  tvCrews: Array<Crew> = [];
+  tvCrewsLength: number;
   imgPrefix:string=`https://image.tmdb.org/t/p/w500`;
-  video:any;
+  video: string;
 
   constructor(private activatedRoute:ActivatedRoute , private tvApiService:TvApiService) { }
 
@@ -44,9 +46,13 @@ getTvDetail() {
 
 getTvVideo() {
 this.tvApiService.getTvVideo(this.tvId).pipe(take(1)).subscribe((data)=> {
-    for(let i=0; i<data.results.length;i++) {
-      if(data.results[i].type == 'Trailer' || data.results[i].type == 'Teaser') {
-        this.video=`https://www.youtube.com/watch?v=${data.results[i].key}`
+    const result = data.results;
+    for(let i=0; i<result.length;i++) {
+      if(result[i].type === 'Trailer' ||
+       data.results[i].type === 'Teaser' ||
+       data.results[i].type === 'Opening Credits' ||
+       data.results[i].type === 'Behind the Scenes' ) {
+        this.video=`https://www.youtube.com/watch?v=${result[i].key}`
       }
     }
   })
@@ -56,12 +62,14 @@ this.tvApiService.getTvVideo(this.tvId).pipe(take(1)).subscribe((data)=> {
 getTvCredit() {
   this.tvApiService.getTvCredit(this.tvId).pipe(take(1)).subscribe((data)=> {
     this.tvCastsLength=data.cast.length;
-    for(let i=0; i<data.cast.length; i++) {
-      this.tvCasts.push(data.cast[i]);
+    const cast = data.cast;
+    for(let i=0; i<this.tvCastsLength; i++) {
+      this.tvCasts.push(cast[i]);
     }
     this.tvCrewsLength=data.crew.length;
-    for(let i=0; i<data.crew.length; i++) {
-      this.tvCrews.push(data.crew[i]);
+    const crew = data.crew;
+    for(let i=0; i<this.tvCrewsLength; i++) {
+      this.tvCrews.push(crew[i]);
     }
   })
 

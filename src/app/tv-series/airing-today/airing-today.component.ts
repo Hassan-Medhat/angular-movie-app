@@ -3,6 +3,7 @@ import { PaginationInstance } from 'ngx-pagination/lib/ngx-pagination.module';
 import { Subject} from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TvApiService } from '../tv-api.service';
+import { Tv } from 'src/app/shared/interfaces/tv';
 
 
 
@@ -15,7 +16,7 @@ import { TvApiService } from '../tv-api.service';
 export class AiringTodayComponent implements OnInit , OnDestroy {
 
   private unsubscribe: Subject<void> = new Subject<void>();
-  airingTodayTvShows:any[] = [];
+  airingTodayTvShows: Array<Tv> = [];
   page:number;
   term:string='';
 

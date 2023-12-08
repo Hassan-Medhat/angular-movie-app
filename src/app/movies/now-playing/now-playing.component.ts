@@ -3,6 +3,7 @@ import { PaginationInstance } from 'ngx-pagination/lib/ngx-pagination.module';
 import { MoviesApiService } from '../movies-api.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Moive } from 'src/app/shared/interfaces/moive';
 
 
 
@@ -16,7 +17,7 @@ import { takeUntil } from 'rxjs/operators';
 export class NowPlayingComponent implements OnInit , OnDestroy {
 
   private unsubscribe: Subject<void> = new Subject<void>();
-  nowPlayingMovies:any[] = [];
+  nowPlayingMovies: Array<Moive> = [];
   page:number;
   term:string='';
 

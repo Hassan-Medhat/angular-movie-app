@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PeopleApiService } from '../people-api.service';
 import { Subject } from 'rxjs';
 import {takeUntil } from 'rxjs/operators';
+import { People } from 'src/app/shared/interfaces/people';
 
 
 @Component({
@@ -13,15 +14,15 @@ import {takeUntil } from 'rxjs/operators';
 export class PeopleDetailsComponent implements OnInit , OnDestroy {
 
   private unsubscribe: Subject<void> = new Subject<void>();
-  peopleId:any;
-  peopleBiography:any;
-  peopleBirthday:any;
-  peoplePlaceOfBirth:any;
-  peopleName:any;
+  peopleId: number;
+  peopleBiography: string;
+  peopleBirthday: string;
+  peoplePlaceOfBirth: string;
+  peopleName: string;
   isValid:boolean = true;
-  peopleDetail:any;
-  peopleGender:any;
-  imdbUrl:any;
+  peopleDetail: Partial<People>;
+  peopleGender: string;
+  imdbUrl: string;
   imgPrefix:string=`https://image.tmdb.org/t/p/w500`;
 
   constructor(private activatedRoute:ActivatedRoute , private peopleApiService:PeopleApiService) { }

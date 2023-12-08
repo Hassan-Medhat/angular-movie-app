@@ -1,29 +1,29 @@
-<div class="box" [ngStyle]="{'background-image': 'url('+ imgPrefix+movieDetails?.backdrop_path +')'}">
+<div class="box" [ngStyle]="{'background-image': 'url('+ imgPrefix+movieDetails.backdrop_path +')'}">
     <div class="container">
         <div class="row position-relative z-3">
             <div class="col-md-4 col-sm-12">
-                <img [src]="imgPrefix+movieDetails?.poster_path"  [alt]="movieDetails?.title" class="w-100">
+                <img [src]="imgPrefix+movieDetails.poster_path"  [alt]="movieDetails.title" class="w-100">
             </div>
             <div class="col-md-8  col-sm-12 py-5">
                 <div class="box-title">
-                    <span class="title">{{movieDetails?.title}}</span>
-                    <span class="date">({{movieDetails?.release_date | date: 'y'}})</span>
+                    <span class="title">{{movieDetails.title}}</span>
+                    <span class="date">({{movieDetails.release_date | date: 'y'}})</span>
                 </div>
                 <div class="box-time">
-                    <span class="time">{{movieDetails?.release_date | date: 'M/d/y'}}</span>
+                    <span class="time">{{movieDetails.release_date | date: 'M/d/y'}}</span>
                     <span  *ngFor="let genre of movieGenres">
                         <span class="genres">{{genre?.name}}</span>
                     </span> 
-                    <span class="runtime"><i class="fa-regular fa-clock"></i>{{movieDetails?.runtime}} min</span>  
+                    <span class="runtime"><i class="fa-regular fa-clock"></i>{{movieDetails.runtime}} min</span>  
                 </div>
                 <div class="votvid">
                     <div class="vote-average">
-                        <div class="vote"><i class="fa-solid fa-star"></i>{{aroundRating(movieDetails?.vote_average)}}</div>
+                        <div class="vote"><i class="fa-solid fa-star"></i>{{aroundRating(movieDetails.vote_average)}}</div>
                     </div>
                     <div class="video"><a [href]="video" target="_blank"><i class="fa-solid fa-play"></i>play trailer</a></div>
                 </div>
                 
-                <div class="tagline">{{movieDetails?.tagline}}</div>
+                <div class="tagline">{{movieDetails.tagline}}</div>
                 <div class="overview">
                     <h4>overview</h4>
                     <p>{{movieOverview}}</p>

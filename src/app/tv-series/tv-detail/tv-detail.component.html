@@ -1,29 +1,29 @@
-<div class="box" [ngStyle]="{'background-image': 'url('+ imgPrefix+tvDetails?.backdrop_path +')'}">
+<div class="box" [ngStyle]="{'background-image': 'url('+ imgPrefix+tvDetails.backdrop_path +')'}">
     <div class="container">
         <div class="row position-relative z-3">
             <div class="col-md-4">
-                <img [src]="imgPrefix+tvDetails?.poster_path" [alt]="tvDetails?.name" class="w-100">
+                <img [src]="imgPrefix+tvDetails.poster_path" [alt]="tvDetails.name" class="w-100">
             </div>
             <div class="col-md-8 py-5">
                 <div class="box-title">
-                    <span class="title">{{tvDetails?.name}}</span>
-                    <span class="date">({{tvDetails?.first_air_date | date: 'y'}})</span>
+                    <span class="title">{{tvDetails.name}}</span>
+                    <span class="date">({{tvDetails.first_air_date | date: 'y'}})</span>
                 </div>
                 <div class="box-time">
-                    <span class="time">{{tvDetails?.first_air_date | date: 'M/d/y'}}</span>
+                    <span class="time">{{tvDetails.first_air_date | date: 'M/d/y'}}</span>
                     <span  *ngFor="let genre of tvGenres">
                         <span class="genres">{{genre?.name}}</span>
                     </span> 
-                    <span class="runtime"><i class="fa-regular fa-clock"></i>{{tvDetails?.episode_run_time}} min</span>  
+                    <span class="runtime"><i class="fa-regular fa-clock"></i>{{tvDetails.episode_run_time}} min</span>  
                 </div>
                 <div class="votvid">
                     <div class="vote-average">
-                        <div class="vote"><i class="fa-solid fa-star"></i>{{aroundRating(tvDetails?.vote_average)}}</div>
+                        <div class="vote"><i class="fa-solid fa-star"></i>{{aroundRating(tvDetails.vote_average)}}</div>
                     </div>
                     <div class="video"><a [href]="video" target="_blank"><i class="fa-solid fa-play"></i>play trailer</a></div>
                 </div>
                 
-                <div class="tagline">{{tvDetails?.tagline}}</div>
+                <div class="tagline">{{tvDetails.tagline}}</div>
                 <div class="overview">
                     <h4>overview</h4>
                     <p>{{tvOverview}}</p>
